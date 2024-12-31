@@ -1,4 +1,4 @@
-### Sherlock Web Scanner
+### Sherlock username Scanner
 
 A web-based interface for the powerful [Sherlock Project](https://github.com/sherlock-project/sherlock). This application allows users to input one or more usernames and search for their presence across various social networks, generating detailed reports in CSV or XLSX format.
 
@@ -80,6 +80,9 @@ A web-based interface for the powerful [Sherlock Project](https://github.com/she
    ```
    http://127.0.0.1:5001
    ```
+![Screenshot 2024-12-31 at 12 37 51](https://github.com/user-attachments/assets/52fdc8d7-89d3-4510-9079-6238bb1b5c8f)
+
+![Screenshot 2024-12-31 at 12 38 15](https://github.com/user-attachments/assets/522bf71b-9726-418e-86f7-c00cfe2c005c)
 
 ---
 
