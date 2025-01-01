@@ -26,7 +26,7 @@ A web-based interface for the powerful [Sherlock Project](https://github.com/she
 
 ## **Getting Started**
 
-You can run this locally or using docker. For docker instructions skip to [the docker section](#docker-instructions)
+You can run this locally or using docker. For docker instructions skip to [the docker section](#docker-install-instructions)
 
 * First step, Clone the repository
 ```bash
@@ -77,28 +77,19 @@ There is some make recipes to make this easier if you are using a posix terminal
 
 ### **Prerequisites**
 - [Docker](https://docs.docker.com/engine/install/)
-- [Docker Compose] (https://docs.docker.com/compose/) (Most new docker installations have docker compose)
+- [Docker Compose](https://docs.docker.com/compose/) (Most new docker installations have docker compose)
 - A modern web browser
 
 ---
 
-### **Installation**
+### **Starting the application in docker**
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/sherlock-web-app.git
-   cd sherlock-web-app
-   ```
-
-2. Create your environment file
+1. Create your environment file
    ```bash
    cp .env.example .env
    ```
 
----
-
-### **Starting the application in docker**
-1. Run the make or docker compose command
+2. Run the make or docker compose command
 ```bash
    (make)      make up
    (no make)   docker-compose up -d
@@ -106,7 +97,7 @@ There is some make recipes to make this easier if you are using a posix terminal
 
 ---
 
-## **Running the Application**
+## **Using the Application**
 Open your browser and navigate to:
    ```
    http://127.0.0.1:5001
