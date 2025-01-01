@@ -1,0 +1,28 @@
+version: "3.8"
+
+networks:
+  default:
+    ipam:
+      driver: default
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      args:
+        UID: ${UID:-1000}
+        GID: ${GID:-1000}
+        USER_NAME: ${DOCKER_USER:-swebscan}
+        PYTHON_VERSION: ${PYTHON_VERSION:-3.9-alpine}
+    image: "sherlock-web-scanner:${TAG:-latest}"
+    command: python3 /app/sherlock_app.py
+    ports:
+      - "${DEPLOY_PORT:-5001}:5001"
+    volumes:
+      - ../:/src/app
+      - ../output:/app/output
+    env_file:
+      - ../.env
+    networks:
+      - default
