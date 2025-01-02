@@ -26,6 +26,16 @@ A web-based interface for the powerful [Sherlock Project](https://github.com/she
 
 ## **Getting Started**
 
+You can run this locally or using docker. For docker instructions skip to [the docker section](#docker-install-instructions)
+
+* First step, Clone the repository
+```bash
+   git clone https://github.com/your-username/sherlock-web-app.git
+   cd sherlock-web-app
+```
+
+## **Local Install Instructions**
+
 ### **Prerequisites**
 - Python 3.9 or later
 - Virtual environment (`venv`) for Python package management
@@ -35,48 +45,60 @@ A web-based interface for the powerful [Sherlock Project](https://github.com/she
 ---
 
 ### **Installation**
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/sherlock-web-app.git
-   cd sherlock-web-app
-   ```
-
-2. Create and activate a virtual environment:
-   ```bash
+1. Create and activate a virtual environment:
+```bash
    python3 -m venv venv
    source venv/bin/activate  # Linux/MacOS
    venv\Scripts\activate     # Windows
-   ```
+```
 
-3. Install dependencies:
-   ```bash
+2. Install dependencies:
+```bash
    pip install -r requirements.txt
-   ```
+```
 
-4. Install the Sherlock Project:
-   ```bash
-   git clone https://github.com/sherlock-project/sherlock.git
-   cd sherlock
-   python3 setup.py install
-   cd ..
-   ```
-
-5. Set up directories:
-   ```bash
+3. Set up directories:
+```bash
    mkdir output
-   ```
+```
 
 ---
 
-### **Running the Application**
-
+### **Starting the application locally**
 1. Start the Flask server:
-   ```bash
+```bash
    python app.py
+```
+
+---
+
+## **Docker Install Instructions**
+There is some make recipes to make this easier if you are using a posix terminal. This way you don't have to reference the docker compose commands.
+
+### **Prerequisites**
+- [Docker](https://docs.docker.com/engine/install/)
+- [Docker Compose](https://docs.docker.com/compose/) (Most new docker installations have docker compose)
+- A modern web browser
+
+---
+
+### **Starting the application in docker**
+
+1. Create your environment file
+   ```bash
+   cp .env.example .env
    ```
 
-2. Open your browser and navigate to:
+2. Run the make or docker compose command
+```bash
+   (make)      make up
+   (no make)   docker-compose up -d
+```
+
+---
+
+## **Using the Application**
+Open your browser and navigate to:
    ```
    http://127.0.0.1:5001
    ```
@@ -102,16 +124,21 @@ A web-based interface for the powerful [Sherlock Project](https://github.com/she
 ## **Project Structure**
 ```plaintext
 sherlock-web-app/
-├── app.py                # Main Flask application
-├── requirements.txt      # Python dependencies
+├── sherlock_app.py              # Main Flask application
+├── requirements.txt             # Python dependencies
+├── Makefile                     # Make recipes for docker commands
+├── .env.example                 # env file for secrets (currently only used for docker)
 ├── templates/
-│   └── index.html        # Frontend HTML template
+│   └── index.html               # Frontend HTML template
 ├── static/
-│   ├── style.css         # Custom CSS
-│   └── lcnr.jpg          # Logo file (optional, replace if needed)
-├── output/               # Directory for output files
-├── venv/                 # Python virtual environment
-└── sherlock/             # Cloned Sherlock repository
+│   ├── style.css                # Custom CSS
+│   └── lcnr.jpg                 # Logo file (optional, replace if needed)
+├── docker/
+│   ├── docker-compose.yml
+│   └── Dockerfile
+├── output/                      # Directory for output files
+├── venv/                        # Python virtual environment
+└── sherlock/                    # Cloned Sherlock repository
 ```
 
 ---
@@ -132,7 +159,7 @@ This project leverages the amazing [Sherlock Project](https://github.com/sherloc
 ## **Future Enhancements**
 - Add authentication for secure access.
 - Implement a database for scan history and user management.
-- Dockerize the application for simplified deployment.
+- ~~Dockerize the application for simplified deployment.~~
 - Allow more customizable scan options directly from the frontend.
 
 ---
